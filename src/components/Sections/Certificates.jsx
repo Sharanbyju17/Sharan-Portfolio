@@ -134,7 +134,8 @@ export function Certificates() {
                 border: '1px solid rgba(255, 255, 255, 0.05)',
                 borderLeft: `4px solid ${cert.accent}`,
                 borderRadius: 16,
-                padding: 24,
+                padding: 'clamp(20px, 4vw, 32px)',
+                position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 20,
@@ -242,7 +243,7 @@ export function Certificates() {
               position: 'fixed', inset: 0, zIndex: 9999,
               background: 'rgba(2, 4, 8, 0.9)', backdropFilter: 'blur(10px)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              padding: 24
+              padding: 'clamp(16px, 3vw, 24px)'
             }}
           >
             <motion.div
@@ -274,7 +275,7 @@ export function Certificates() {
               </button>
               
               <div style={{ display: 'flex', flexDirection: 'column', maxHeight: '90vh' }}>
-                <div style={{ padding: '32px 32px 24px', borderBottom: '1px solid var(--line)', flexShrink: 0 }}>
+                <div style={{ padding: 'clamp(20px, 4vw, 32px)', borderBottom: '1px solid var(--line)', flexShrink: 0 }}>
                   <div style={{
                     background: selected.badgeBg, color: selected.badgeColor,
                     padding: '4px 10px', borderRadius: 999,
@@ -283,14 +284,14 @@ export function Certificates() {
                   }}>
                     {selected.badge}
                   </div>
-                  <h3 style={{ margin: '0 0 8px', fontSize: 28, fontWeight: 700, color: 'var(--ink)' }}>{selected.title}</h3>
-                  <p style={{ margin: 0, color: 'var(--muted)', fontSize: 16 }}>{selected.detailDescription || selected.description}</p>
+                  <h3 style={{ margin: '0 0 8px', fontSize: 'clamp(20px, 4vw, 28px)', fontWeight: 700, color: 'var(--ink)' }}>{selected.title}</h3>
+                  <p style={{ margin: 0, color: 'var(--muted)', fontSize: 'clamp(14px, 2vw, 16px)' }}>{selected.detailDescription || selected.description}</p>
                 </div>
                 
-                <div style={{ padding: 32, display: 'flex', flexWrap: 'wrap', gap: 40, overflowY: 'auto' }}>
+                <div style={{ padding: 'clamp(20px, 4vw, 32px)', display: 'flex', flexWrap: 'wrap', gap: 'clamp(24px, 4vw, 40px)', overflowY: 'auto' }}>
                   
                   {/* Left Column: Details */}
-                  <div style={{ flex: '1 1 350px', display: 'flex', flexDirection: 'column', gap: 32 }}>
+                  <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: 24, minWidth: 260 }}>
                     
                     <div>
                       <h4 style={{ margin: '0 0 16px', fontSize: 18, fontWeight: 700, color: 'var(--ink)' }}>What I Learned & Built</h4>
@@ -318,7 +319,7 @@ export function Certificates() {
                   </div>
 
                   {/* Right Column: Image/PDF Preview */}
-                  <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
+                  <div style={{ flex: '1 1 320px', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', minWidth: 260 }}>
                     {selected.image.endsWith('.pdf') ? (
                       <embed
                         src={`${selected.image}#view=FitH`}

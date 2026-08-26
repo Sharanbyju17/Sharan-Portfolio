@@ -360,8 +360,8 @@ function TechOrbit() {
         className="noise"
         style={{
           position: 'relative', minHeight: '100vh',
-          display: 'flex', alignItems: 'center',
-          overflow: 'hidden', paddingTop: 100,
+          display: 'flex', alignItems: 'flex-start',
+          overflow: 'hidden', paddingTop: 80, paddingBottom: 100,
         }}
       >
         {/* Gradient blobs */}
@@ -393,10 +393,10 @@ function TechOrbit() {
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{
             display: 'grid', gridTemplateColumns: '1fr auto',
-            gap: 60, alignItems: 'center',
+            gap: 70, alignItems: 'flex-start',
           }}>
             {/* Left: Text */}
-            <div>
+            <div style={{ paddingTop: 80 }}>
               {/* Eyebrow */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
                 <div style={{ display: 'flex', gap: 4 }}>
