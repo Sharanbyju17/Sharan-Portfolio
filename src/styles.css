@@ -198,6 +198,13 @@ body {
   box-shadow: 0 0 10px var(--glow);
 }
 
+/* Responsive Utilities */
+@media (min-width: 1024px) {
+  .lg-hidden {
+    display: none !important;
+  }
+}
+
 #cursor-ring {
   position: fixed;
   width: 36px;
