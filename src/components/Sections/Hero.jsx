@@ -296,7 +296,13 @@ function TechOrbit() {
     }
   }, [typing]);
 
-  useEffect(() => {endRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [lines]);
+  useEffect(() => {
+    // Scroll the terminal window only, without moving the entire page
+    if (endRef.current && endRef.current.parentElement) {
+      const parent = endRef.current.parentElement;
+      parent.scrollTop = parent.scrollHeight;
+    }
+  }, [lines]);
 
       const currentLine = typing.lineIdx < TERMINAL_SCRIPT.length ? TERMINAL_SCRIPT[typing.lineIdx] : null;
 
