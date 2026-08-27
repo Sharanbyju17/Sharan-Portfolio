@@ -20,10 +20,6 @@ const EXPERIENCE = [
   },
 ];
 
-const EDUCATION = [
-  { period: '2021 — 2023', degree: 'Master of Computer Applications', university: 'Anna University, Chennai', grade: 'CGPA 8.5 / 10' },
-  { period: '2018 — 2021', degree: 'Bachelor of Computer Science', university: 'Madras University, Chennai', grade: 'CGPA 8.0 / 10' },
-];
 
 export function Experience() {
   const lineRef = useRef(null);
@@ -134,55 +130,8 @@ export function Experience() {
               </div>
             </motion.div>
           ))}
-
-          {/* Education */}
-          <div style={{ marginTop: 40 }}>
-            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', color: 'var(--muted)', marginBottom: 24, fontFamily: 'monospace' }}>
-              EDUCATION
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-              {EDUCATION.map((ed, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  style={{
-                    background: 'rgba(8,13,26,0.8)', border: '1px solid var(--line)',
-                    borderRadius: 14, padding: '20px 24px',
-                  }}
-                >
-                  {/* Dot */}
-                  <div style={{
-                    position: 'relative',
-                    marginLeft: -54, marginBottom: 16,
-                  }}>
-                    <div style={{
-                      position: 'absolute', left: 4, top: 0,
-                      width: 10, height: 10, borderRadius: '50%',
-                      background: '#4b5563', border: '2px solid var(--bg)',
-                    }} />
-                  </div>
-
-                  <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', color: 'var(--muted)', fontFamily: 'monospace' }}>
-                    {ed.period}
-                  </span>
-                  <h4 style={{ fontSize: 16, fontWeight: 700, marginTop: 6, marginBottom: 4, lineHeight: 1.3 }}>{ed.degree}</h4>
-                  <p style={{ color: 'var(--muted)', fontSize: 13, marginBottom: 6 }}>{ed.university}</p>
-                  <span style={{ fontSize: 12, fontWeight: 600, color: '#4b5563' }}>{ed.grade}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 600px) {
-          #experience .container > div:last-child > div:last-child > div:last-child { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </section>
   );
 }

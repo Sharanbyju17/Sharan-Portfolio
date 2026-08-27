@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Download } from 'lucide-react';
 
-const NAV_ITEMS = ['about', 'skills', 'experience', 'projects', 'certificates', 'contact'];
+const NAV_ITEMS = ['about', 'skills', 'experience', 'education', 'projects', 'certificates', 'contact'];
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -13,9 +13,10 @@ export function Navigation() {
       setScrolled(window.scrollY > 60);
 
       let current = 'home';
+      const offset = window.innerHeight / 3;
       NAV_ITEMS.forEach((id) => {
         const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 140) current = id;
+        if (el && window.scrollY >= el.offsetTop - offset) current = id;
       });
       setActive(current);
     };
@@ -73,7 +74,7 @@ export function Navigation() {
         {/* Right side */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           {/* Available status */}
-          <div style={{
+          <div className="hide-on-mobile" style={{
             display: 'flex', alignItems: 'center', gap: 7,
             background: 'rgba(34, 197, 94, 0.08)',
             border: '1px solid rgba(34,197,94,0.2)',
@@ -86,6 +87,7 @@ export function Navigation() {
           <a
             href={`${import.meta.env.BASE_URL || '/'}Sharan_Byju_Resume.docx`}
             download
+            className="hide-on-mobile"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 6,
               padding: '8px 16px', borderRadius: 999,
@@ -143,6 +145,17 @@ export function Navigation() {
               }}
             >{item}</button>
           ))}
+          <a
+            href={`${import.meta.env.BASE_URL || '/'}Sharan_Byju_Resume.docx`}
+            download
+            style={{
+              display: 'flex', alignItems: 'center', gap: 8, width: '100%', padding: '16px 24px',
+              background: 'rgba(37, 99, 235, 0.1)', color: 'var(--accent)',
+              fontSize: 15, fontWeight: 600, textDecoration: 'none', borderBottom: 'none',
+            }}
+          >
+            <Download size={16} /> Download Resume
+          </a>
         </div>
       )}
     </>
